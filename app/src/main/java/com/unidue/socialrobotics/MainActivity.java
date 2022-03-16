@@ -48,7 +48,7 @@ public class MainActivity extends RosActivity {
 
     public MainActivity() {
         super("socialRobotics", "SocialRobotics", URI.create("http://"+LoginActivity.sharedPref.getString("MasterIP","")+":"+LoginActivity.sharedPref.getString("MasterPort","")));
-        //super("socialRobotics", "SocialRobotics", URI.create("http://134.91.76.226:11311"));
+        //super("socialRobotics", "SocialRobotics", URI.create("http://192.168.1.64:11311"));
     }
 
     @Override
@@ -74,10 +74,13 @@ public class MainActivity extends RosActivity {
         mapView.getCamera().rotate(0,0,-1.57);
         mapView.getCamera().translate(-500.0, -275.0);
         mapView.onCreate(Lists.<Layer>newArrayList(new CameraControlLayer(),
-                new OccupancyGridLayer("map"), new PathLayer("move_base/NavfnROS/plan"), new PathLayer(
-                        "move_base_dynamic/NavfnROS/plan"), new LaserScanLayer("scan"),
-                new PoseSubscriberLayer("move_base_simple/goal"), new PosePublisherLayer(
-                        "move_base_simple/goal"), new RobotLayer("base_footprint")));
+                new OccupancyGridLayer("map"),
+                //new PathLayer("move_base/NavfnROS/plan"),
+                new PathLayer("move_base_dynamic/NavfnROS/plan"),
+                new LaserScanLayer("scan"),
+                new PoseSubscriberLayer("move_base_simple/goal"),
+                new PosePublisherLayer("move_base_simple/goal"),
+                new RobotLayer("base_footprint")));
 
         Button btnSetTask = findViewById(R.id.btnSetTask);
         btnSetTask.setOnClickListener(new View.OnClickListener() {

@@ -39,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         editor = sharedPref.edit();
 
         if (! sharedPref.contains("MasterIP")){
-            editor.putString("MasterIP", "134.91.76.226");
+            editor.putString("MasterIP", "192.168.1.64");
             editor.putString("MasterPort", "11311");
             editor.apply();
         }
